@@ -1,19 +1,23 @@
 
-/* === Option B: Animated SVG Waves (hero only) === */
-.hero {
-  position: relative;
-  overflow: hidden;
-  border-radius: 16px;
-  background: #f7fbff;
+
+/* === Option A: Animated Gradient Background (global) === */
+body.gradient-bg {
+  background: linear-gradient(120deg, #eef2f7, #f7fbff, #ecf3ff, #eef5ff);
+  background-size: 400% 400%;
+  animation: flowGradient 22s ease infinite;
 }
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url('../svg/waves.svg') no-repeat center bottom;
-  background-size: cover;
-  opacity: 1;
-  z-index: -1;
+@keyframes flowGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* Optional: subtle overlay for readability */
+.gradient-overlay .card, .gradient-overlay .hero, .gradient-overlay .section {
+  background: transparent;
+}
+.gradient-overlay .card {
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(6px);
 }
 
 
